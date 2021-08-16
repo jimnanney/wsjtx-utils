@@ -1,8 +1,8 @@
 # Wsjtx::Utils
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wsjtx/utils`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Utilities to watch the log and highlight unworked stations, grid squares,
+and countries. Also includes a real-time publish to popular online log platforms
+for uploading log entries in real time.
 
 ## Installation
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
 
 ## Development
 

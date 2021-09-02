@@ -1,4 +1,4 @@
-# Wsjtx::Utils
+# WsjtxUtils
 
 Utilities to watch the log and highlight unworked stations, grid squares,
 and countries. Also includes a real-time publish to popular online log platforms
@@ -9,7 +9,7 @@ for uploading log entries in real time.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'wsjtx-utils'
+gem 'wsjtx_utils'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install wsjtx-utils
+    $ gem install wsjtx_utils
 
 ## Usage
 
@@ -32,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/wsjtx-utils. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/wsjtx-utils/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/wsjtx_utils. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/wsjtx_utils/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -40,4 +40,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Wsjtx::Utils project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/wsjtx-utils/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the WsjtxUtils project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/wsjtx_utils/blob/main/CODE_OF_CONDUCT.md).

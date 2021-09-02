@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/wsjtx/utils/version"
+require_relative "lib/wsjtx_utils/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "wsjtx-utils"
-  spec.version       = Wsjtx::Utils::VERSION
+  spec.version       = WsjtxUtils::VERSION
   spec.authors       = ["Jim Nanney"]
   spec.email         = ["jnanney@gmail.com"]
 
@@ -13,15 +13,15 @@ Gem::Specification.new do |spec|
                        "and countries. Also includes a real-time publish to popular online log platforms " \
                        "for uploading log entries in real time."
 
-  spec.homepage      = "https://github.com/wsjtx-utils"
+  spec.homepage      = "https://github.com/wsjtx_utils"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
   spec.metadata["allowed_push_host"] = "TODO: Set to 'https://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/wsjtx-utils"
-  spec.metadata["changelog_uri"] = "https://github.com/jimnanney/wsjtx-utils/blob/main/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/wsjtx_utils"
+  spec.metadata["changelog_uri"] = "https://github.com/jimnanney/wsjtx_utils/blob/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

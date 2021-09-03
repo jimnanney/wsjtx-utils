@@ -1,14 +1,15 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-$0 = 'client'
+$0 = "client"
 
 require "bundler/setup"
 require "wsjtx_utils"
 
-#$LOAD_PATH << '../lib/'
+# $LOAD_PATH << '../lib/'
 
-c = WsjtxUtils::Client.new('127.0.0.1', 2237)
+c = WsjtxUtils::Client.new("127.0.0.1", 2237)
 
 c.listen do |message|
-   puts message.inspect
+  puts message.inspect
 end

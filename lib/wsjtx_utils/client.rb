@@ -1,5 +1,7 @@
-require 'socket'
-require 'securerandom'
+# frozen_string_literal: true
+
+require "socket"
+require "securerandom"
 
 module WsjtxUtils
   class Client
@@ -13,7 +15,7 @@ module WsjtxUtils
     def listen
       @c = UDPSocket.new
       @c.bind address, port
-      while true do
+      loop do
         x = @c.recv(1000)
         yield Message.from_packet(x)
       end
@@ -24,13 +26,11 @@ module WsjtxUtils
     private
 
     def recv
-     begin # emulate blocking recvfrom
-       @c.recvfrom_nonblock(1)  #=> ["aaa", ["AF_INET", 33302, "localhost.localdomain", "127.0.0.1"]]
-     rescue IO::WaitReadable
-       IO.select([@c])
-       retry
-     end 
+      # emulate blocking recvfrom
+      @c.recvfrom_nonblock(1)  #=> ["aaa", ["AF_INET", 33302, "localhost.localdomain", "127.0.0.1"]]
+    rescue IO::WaitReadable
+      IO.select([@c])
+      retry
     end
   end
 end
-

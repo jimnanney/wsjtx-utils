@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module WsjtxUtils
   class HeartbeatMessage < Message
     attr_accessor :schema, :version, :revision, :id
 
     def self.from_packet(packet)
-      new.tap do |c| 
+      new.tap do |c|
         c.packet = packet
         c.decode_packet
       end

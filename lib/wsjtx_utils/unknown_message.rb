@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module WsjtxUtils
   class UnknownMessage < Message
     def self.from_packet(packet)

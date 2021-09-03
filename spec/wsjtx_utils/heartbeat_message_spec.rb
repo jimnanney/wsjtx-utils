@@ -1,4 +1,6 @@
-require 'spec_helper'
+# frozen_string_literal: true
+
+require "spec_helper"
 
 module WsjtxUtils
   describe HeartbeatMessage do
@@ -8,31 +10,15 @@ module WsjtxUtils
       let(:heartbeat_packet) do
         [
           Message::MAGIC_NUMBER,
-          3,
-          0,
-          4,
-          "Test",
-          3,
-          1,
-          "Q",
-          1,
-          "T"
-        ].pack('NNNNa4NNa1Na1')
+          3, 0, 4, "Test", 3, 1, "Q", 1, "T"
+        ].pack("NNNNa4NNa1Na1")
       end
 
-      context "given a well formed heartbeat packet" do
-        it "returns a populated Heartbeat message" do
-          hb = HeartbeatMessage.from_packet(heartbeat_packet)
+      it "returns a populated Heartbeat message" do
+        hb = HeartbeatMessage.from_packet(heartbeat_packet)
 
-          expect(hb).to be_a(HeartbeatMessage)
-          expect(hb).to have_attributes(id: "Test", schema: 3, version: "Q", revision: "T")
-        end
-      end
-
-      context "given a packet missing information" do
-        it "returns an UnknownMessage" do
-
-        end
+        expect(hb).to be_a(HeartbeatMessage)
+        expect(hb).to have_attributes(id: "Test", schema: 3, version: "Q", revision: "T")
       end
     end
   end

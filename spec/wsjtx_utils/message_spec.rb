@@ -18,7 +18,7 @@ module WsjtxUtils
 
     describe '.from_packet' do
       context 'given a heartbeat message type' do
-        let(:heartbeat_packet) { [0xadbccbda, 3, 0, 'id'.length, 'id'].pack("NNCNa#{'id'.bytesize}") }
+        let(:heartbeat_packet) { [Message::MAGIC_NUMBER, 3, 0, 'id'.length, 'id'].pack("NNCNa#{'id'.bytesize}") }
 
         it 'returns a new instance of the registered message type' do
           result = described_class.from_packet(heartbeat_packet)
@@ -27,11 +27,38 @@ module WsjtxUtils
       end
 
       context 'given an unknown message type' do
-        let(:unknown_packet) { [0xadbccbda, 3, 255].pack('NNC') }
+        let(:unknown_packet) { [Message::MAGIC_NUMBER, 3, 255].pack('NNC') }
 
         it 'returns the Unknown message type' do
           result = described_class.from_packet(unknown_packet)
           expect(result).to be_a(UnknownMessage)
+        end
+      end
+
+      describe 'decoding data' do
+        describe '#decode_int' do
+          it 'decodes an integer from the packet and advances the index by 4' do
+            message.packet = [1_000_000].pack('N')
+
+            expect(message.decode_int).to eq(1_000_000)
+            expect(message.index).to eq(4)
+          end
+        end
+
+        describe '#decode_string' do
+          it 'gets the string size from the current index and then reads that many bytes into a string' do
+            string = "Test"
+            message.packet = [string.bytesize, string].pack("Na#{string.bytesize}")
+
+            expect(message.decode_string).to eq(string)
+            expect(message.index).to eq(4+string.bytesize)
+          end
+
+          it 'returns nil if the packet contains no data to unpack' do
+            message.packet = ''
+
+            expect(message.decode_string).to eq(nil)
+          end
         end
       end
     end
